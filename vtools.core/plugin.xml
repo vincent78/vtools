@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<!--
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.vtools.core.VToolsCoreApp">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="com.vtools.core.Perspective"
+            id="VTools.Core.perspective">
+      </perspective>
+   </extension>
+-->   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="com.vtools.core"
+               label="VTools">
+            <command
+                  commandId="com.vtools.core.command.dbinfo"
+                  id="com.vtools.core.command.DbInfoCommand"
+                  label="DB INFO"
+                  style="push">
+            </command>
+            <separator
+                  name="VTools.separator1"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.vtools.core.command.templateManager"
+                  id="com.vtools.core.command.TemplateManagerCommand"
+                  label="Template Manager"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.vtools.core.command.codeGenerate"
+                  id="com.vtools.core.command.codeGenerate"
+                  label="Code Generate"
+                  style="push">
+            </command>
+         </menu>
+         
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.vtools.core.command.DbInfoCommand"
+            id="com.vtools.core.command.dbinfo"
+            name="DB INFO">
+      </command>
+      <command
+            defaultHandler="com.vtools.core.command.TemplateManagerCommand"
+            id="com.vtools.core.command.templateManager"
+            name="Template Manager">
+      </command>
+      <command
+            defaultHandler="com.vtools.core.command.CodeGenerateCommand"
+            id="com.vtools.core.command.codeGenerate"
+            name="Code Generate">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.vtools.core.perspective.TemplatePerspective"
+            icon="icons/codetemplate.gif"
+            id="com.vtools.core.perspective.TemplatePerspective"
+            name="VTools.Template">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="VToolsCore.views"
+            class="com.vtools.core.views.CodeTemplateView"
+            id="com.vtools.core.views.CodeTemplateView"
+            name="VTools.CodeTemplateView"
+            restorable="true">
+      </view>
+      <category
+            id="VToolsCore.views"
+            name="VTools">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               id="com.vtools.core.views.CodeTemplateView"
+               minimized="false"
+               ratio="0.20f"
+               relationship="left"
+               relative="com.vtools.core.views.CodeTemplateView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="VTools.CodeTemplateView.ActionSet"
+            label="VTools.CodeTemplateView.ActionSet"
+            visible="true">
+         <action
+               class="com.vtools.core.actions.RefreshAction"
+               icon="src/com/vtools/core/views/refresh.gif"
+               id="VTools.CodeTemplateView.ActionSet.Refresh"
+               label="刷新"
+               style="push"
+               toolbarPath="additions"
+               tooltip="刷新">
+         </action>
+      </actionSet>
+   </extension>
+
+</plugin>
