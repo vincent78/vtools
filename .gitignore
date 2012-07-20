@@ -3,3 +3,10 @@
 /vtools.core/.classpath
 /vtools.core/.project
 /vtools.core/.settings
+/vtools.core/db/CONFDB.script
+/vtools.core/db/confDB.lck
+/vtools.core/db/CONFDB.log
+/vtools.core/db/CONFDB.properties
+/vtools.core/db/confDB.lck
+/vtools.core/db/CONFDB.log
+/vtools.core/db/CONFDB.tmp
