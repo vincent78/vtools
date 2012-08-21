@@ -19,4 +19,5 @@ public interface ICodeTemplateTreeNode
     public void setChildren(List<?> Children);
     public List<?> getChildren();
     public ICodeTemplateTreeNode getParent();
+    public boolean isLeaf();
 }

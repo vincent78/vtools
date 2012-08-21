@@ -13,6 +13,9 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
@@ -48,6 +51,20 @@ public class CodeTemplateView extends ViewPart
 		treeView.setLabelProvider(new CodeTemplateTreeLabelProvider());
 		treeView.setContentProvider(new CodeTemplateTreeContentProvider());
 		treeView.setInput(getData(null));
+		treeView.addDoubleClickListener(new IDoubleClickListener()
+		{
+			
+			@Override
+			public void doubleClick(DoubleClickEvent event)
+			{
+				IStructuredSelection selection = (IStructuredSelection)event.getSelection();
+				CodeTemplateTreeNode node = (CodeTemplateTreeNode)selection.getFirstElement();
+				if (node.isLeaf())
+				{
+					CodeTemplateService.openTheFile(node.getPath());
+				}
+			}
+		});
 		initContextMenu();
 	}
 	
@@ -87,7 +104,7 @@ public class CodeTemplateView extends ViewPart
 				for(int i=0;i<nodes.length;i++)
 				{
 					CodeTemplateTreeNode node = (CodeTemplateTreeNode)nodes[i];
-					if (node.getChildren() == null)
+					if (node.isLeaf())
 					{
 						System.out.println(node.getPath());
 					}
@@ -101,6 +118,23 @@ public class CodeTemplateView extends ViewPart
 			@Override
 			public void run()
 			{
+				IStructuredSelection selection = (IStructuredSelection) treeView.getSelection();
+				CodeTemplateTreeNode node = (CodeTemplateTreeNode)selection.getFirstElement();
+				System.out.println(node.getPath());
+				if (!node.isLeaf())
+				{
+					List<CodeTemplateTreeNode> nodes = node.getChildren();
+					for(int i=0;i<node.getChildren().size();i++)
+					{
+						
+						CodeTemplateTreeNode cnode = nodes.get(i);
+						CodeTemplateService.openTheFile(cnode.getPath());
+					}
+				}
+				else
+				{
+					CodeTemplateService.openTheFile(node.getPath());
+				}
 				
 			}
 
@@ -142,9 +176,9 @@ public class CodeTemplateView extends ViewPart
 		treeView.getControl().setMenu(menu);
 	}
 	
-    private void initializeToolBar()
-    {
-    	IToolBarManager toolBarManager = getViewSite().getActionBars().getToolBarManager();//取得此View的toolBarManager
-    	toolBarManager.add(new RefreshAction());
-    }
+//    private void initializeToolBar()
+//    {
+//    	IToolBarManager toolBarManager = getViewSite().getActionBars().getToolBarManager();//取得此View的toolBarManager
+//    	toolBarManager.add(new RefreshAction());
+//    }
 }

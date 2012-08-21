@@ -78,7 +78,7 @@
             class="com.vtools.core.perspective.TemplatePerspective"
             icon="icons/codetemplate.gif"
             id="com.vtools.core.perspective.TemplatePerspective"
-            name="VTools.Template">
+            name="模板管理">
       </perspective>
    </extension>
    <extension
@@ -124,6 +124,15 @@
                tooltip="刷新">
          </action>
       </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.vtools.core.editors.BasicEditorPart"
+            default="false"
+            id="com.vtools.core.editors.basiceditorpart"
+            name="Template Editor">
+      </editor>
    </extension>
 
 </plugin>

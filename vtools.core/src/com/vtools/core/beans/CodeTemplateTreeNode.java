@@ -146,4 +146,14 @@ public class CodeTemplateTreeNode implements ICodeTemplateTreeNode
 		node.getChildren();
 	}
 
+	@Override
+	public boolean isLeaf()
+	{
+		if (children == null || children.size()==0)
+			return true;
+		else
+			return false;
+	}
+	
+
 }

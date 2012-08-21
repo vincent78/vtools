@@ -13,8 +13,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+
 import com.vtools.core.Constant;
 import com.vtools.core.beans.CodeTemplateTreeNode;
+import com.vtools.core.editors.BasicEditorInput;
+import com.vtools.core.editors.BasicEditorPart;
 import com.vtools.utils.ObjectUtil;
 
 public class CodeTemplateService
@@ -50,6 +56,20 @@ public class CodeTemplateService
 			nodeList.add(ObjectUtil.mapToBean(tmp, CodeTemplateTreeNode.class));
 		}
 		return nodeList;
+	}
+	
+	public static void openTheFile(String path)
+	{
+		IWorkbenchPage page=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		BasicEditorInput input = new BasicEditorInput(path);
+		try
+		{
+			page.openEditor(input, BasicEditorPart.ID, true);
+		}
+		catch (PartInitException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	

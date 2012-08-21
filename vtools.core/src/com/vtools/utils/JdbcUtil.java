@@ -79,7 +79,7 @@ public class JdbcUtil
 			{
 				Class.forName(driver);
 				conn = DriverManager.getConnection(url, userName, passwd);
-				System.out.println("connect db is successful!");
+				//System.out.println("connect db is successful!");
 			}
 			retVal = true;
 		}
