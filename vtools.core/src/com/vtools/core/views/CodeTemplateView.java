@@ -59,7 +59,7 @@ public class CodeTemplateView extends ViewPart
 			{
 				IStructuredSelection selection = (IStructuredSelection)event.getSelection();
 				CodeTemplateTreeNode node = (CodeTemplateTreeNode)selection.getFirstElement();
-				if (node.isLeaf())
+				if (node.isLeaf() && !node.isDirectory())
 				{
 					CodeTemplateService.openTheFile(node.getPath());
 				}

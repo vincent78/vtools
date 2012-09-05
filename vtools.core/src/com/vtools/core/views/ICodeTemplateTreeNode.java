@@ -20,4 +20,5 @@ public interface ICodeTemplateTreeNode
     public List<?> getChildren();
     public ICodeTemplateTreeNode getParent();
     public boolean isLeaf();
+    public boolean isDirectory();
 }

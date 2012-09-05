@@ -154,6 +154,12 @@ public class CodeTemplateTreeNode implements ICodeTemplateTreeNode
 		else
 			return false;
 	}
+	@Override
+	public boolean isDirectory()
+	{
+		File tmp = new File(path);
+		return tmp.isDirectory();
+	}
 	
 
 }
