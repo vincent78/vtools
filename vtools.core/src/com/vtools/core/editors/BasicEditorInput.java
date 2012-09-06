@@ -16,7 +16,7 @@ import org.eclipse.ui.IPersistableElement;
 public class BasicEditorInput implements IEditorInput
 {
 	private String path;
-	
+
 	public BasicEditorInput(String path)
 	{
 		this.path = path;
@@ -44,7 +44,8 @@ public class BasicEditorInput implements IEditorInput
 	@Override
 	public String getName()
 	{
-		return path;
+		File tmp = new File(path);
+		return tmp.getName();
 	}
 
 	@Override
@@ -58,17 +59,28 @@ public class BasicEditorInput implements IEditorInput
 	{
 		return path;
 	}
-	
-	public boolean equals(Object obj){
-		if(super.equals(obj)){
+
+	public boolean equals(Object obj)
+	{
+		if (super.equals(obj))
+		{
 			return true;
-		}if(obj instanceof BasicEditorInput){
-			return path.equals(((BasicEditorInput)obj).getName());
+		}
+		if (obj instanceof BasicEditorInput)
+		{
+			return path.equals(((BasicEditorInput) obj).getPath());
 		}
 		return false;
 	}
-	public int hashCode(){
+
+	public int hashCode()
+	{
 		return path.hashCode();
+	}
+	
+	public String getPath()
+	{
+		return path;
 	}
 
 }

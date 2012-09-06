@@ -8,24 +8,23 @@
 
 package com.vtools.core.views;
 import java.util.List;
-
 import org.eclipse.jface.action.Action;
-import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.dialogs.ContainerCheckedTreeViewer;
 import org.eclipse.ui.part.ViewPart;
-
-import com.vtools.core.actions.RefreshAction;
 import com.vtools.core.beans.CodeTemplateTreeNode;
 import com.vtools.core.services.CodeTemplateService;
+import com.vtools.utils.RcpUtil;
 
 public class CodeTemplateView extends ViewPart
 {
@@ -128,12 +127,14 @@ public class CodeTemplateView extends ViewPart
 					{
 						
 						CodeTemplateTreeNode cnode = nodes.get(i);
-						CodeTemplateService.openTheFile(cnode.getPath());
+						if (!cnode.isDirectory())
+							CodeTemplateService.openTheFile(cnode.getPath());
 					}
 				}
 				else
 				{
-					CodeTemplateService.openTheFile(node.getPath());
+					if (!node.isDirectory())
+						CodeTemplateService.openTheFile(node.getPath());
 				}
 				
 			}
@@ -168,7 +169,7 @@ public class CodeTemplateView extends ViewPart
 			@Override
 			public void run()
 			{
-				
+				RcpUtil.ShowMsg("生成代码", "提示");
 			}
 
 		});

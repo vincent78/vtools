@@ -45,7 +45,7 @@ public class BasicEditorPart extends EditorPart implements ISaveablePart2
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
-		SaveToLocal(input.getName());
+		SaveToLocal(input.getPath());
 		dirty=false;
 		firePropertyChange(ISaveablePart2.PROP_DIRTY);
 
@@ -65,6 +65,7 @@ public class BasicEditorPart extends EditorPart implements ISaveablePart2
 			throws PartInitException {
 		setSite(site);
 		setInput(input);
+		//setPartName(input.getName());
 		setPartName(input.getName());
 		this.input=(BasicEditorInput)input;
 
@@ -84,6 +85,7 @@ public class BasicEditorPart extends EditorPart implements ISaveablePart2
 	public void createPartControl(Composite parent) {
 		text =new Text(parent,SWT.BORDER|SWT.WRAP|SWT.H_SCROLL|SWT.CANCEL|SWT.MULTI);
 		loadText();
+		
 		text.addModifyListener(new ModifyListener(){
 
 			@Override
@@ -114,7 +116,7 @@ public class BasicEditorPart extends EditorPart implements ISaveablePart2
 	}
 	private void loadText(){
 		try{
-			BufferedReader reader=new BufferedReader(new InputStreamReader(new FileInputStream(input.getName()),"utf-8"));
+			BufferedReader reader=new BufferedReader(new InputStreamReader(new FileInputStream(input.getPath()),"utf-8"));
 			StringBuffer sb=new StringBuffer();
 			String line=reader.readLine();
 			while(line!=null){

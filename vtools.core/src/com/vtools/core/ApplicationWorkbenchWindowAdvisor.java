@@ -28,7 +28,8 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         
         
         //定制应用程序的外观
-        IPreferenceStore preferenceStore = PrefUtil.getAPIPreferenceStore();
+        @SuppressWarnings("restriction")
+		IPreferenceStore preferenceStore = PrefUtil.getAPIPreferenceStore();
         //设置选项卡的样式，不是矩形的边框，而是弧形的
         preferenceStore.setValue(IWorkbenchPreferenceConstants.SHOW_TRADITIONAL_STYLE_TABS, false);
         //设置透视图按钮的位置，默认是左上角，改为放置在右上角

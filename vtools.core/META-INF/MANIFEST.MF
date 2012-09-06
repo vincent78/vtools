@@ -11,4 +11,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .,
  lib/classes12.jar,
  lib/hsqldb.jar,
+ lib/freemarker.jar,
  bin/
