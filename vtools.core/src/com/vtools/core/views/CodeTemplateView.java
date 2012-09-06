@@ -9,16 +9,17 @@
 package com.vtools.core.views;
 import java.util.List;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.dialogs.ContainerCheckedTreeViewer;
 import org.eclipse.ui.part.ViewPart;
@@ -64,7 +65,7 @@ public class CodeTemplateView extends ViewPart
 				}
 			}
 		});
-		initContextMenu();
+		initMenu();
 	}
 	
 	/**
@@ -89,9 +90,11 @@ public class CodeTemplateView extends ViewPart
 	/**
 	 * 初始化右键菜单
 	 */
-	public void initContextMenu()
+	public void initMenu()
 	{
-		MenuManager menuManager = new MenuManager();
+		//MenuManager menuManager = new MenuManager();
+		IMenuManager menuManager = getViewSite().getActionBars().getMenuManager();
+		
 		menuManager.add(new Action("新建模板")
 		{
 
@@ -173,8 +176,8 @@ public class CodeTemplateView extends ViewPart
 			}
 
 		});
-		Menu menu = menuManager.createContextMenu(treeView.getControl());
-		treeView.getControl().setMenu(menu);
+//		Menu menu = menuManager.createContextMenu(treeView.getControl());
+//		treeView.getControl().setMenu(menu);
 	}
 	
 //    private void initializeToolBar()
