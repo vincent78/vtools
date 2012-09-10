@@ -23,6 +23,9 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.dialogs.ContainerCheckedTreeViewer;
 import org.eclipse.ui.part.ViewPart;
+
+import vtools.core.Activator;
+
 import com.vtools.core.beans.CodeTemplateTreeNode;
 import com.vtools.core.services.CodeTemplateService;
 import com.vtools.utils.RcpUtil;
@@ -30,6 +33,11 @@ import com.vtools.utils.RcpUtil;
 public class CodeTemplateView extends ViewPart
 {
 	private ContainerCheckedTreeViewer  treeView;
+
+	public ContainerCheckedTreeViewer getTreeView()
+	{
+		return treeView;
+	}
 
 	@Override
 	public void dispose()
@@ -65,7 +73,7 @@ public class CodeTemplateView extends ViewPart
 				}
 			}
 		});
-		initMenu();
+		//initMenu();
 	}
 	
 	/**
@@ -92,7 +100,6 @@ public class CodeTemplateView extends ViewPart
 	 */
 	public void initMenu()
 	{
-		//MenuManager menuManager = new MenuManager();
 		IMenuManager menuManager = getViewSite().getActionBars().getMenuManager();
 		
 		menuManager.add(new Action("新建模板")
@@ -166,6 +173,7 @@ public class CodeTemplateView extends ViewPart
 		
 		menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		
+		
 		menuManager.add(new Action("生成代码")
 		{
 
@@ -173,11 +181,10 @@ public class CodeTemplateView extends ViewPart
 			public void run()
 			{
 				RcpUtil.ShowMsg("生成代码", "提示");
+				
 			}
 
 		});
-//		Menu menu = menuManager.createContextMenu(treeView.getControl());
-//		treeView.getControl().setMenu(menu);
 	}
 	
 //    private void initializeToolBar()

@@ -134,5 +134,48 @@
             name="Template Editor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+         <category
+            description="codetemplate view&apos;s commands"
+            id="vtools.core.codetemplatecommands"
+            name="vtools.core.codetemplatecommands">
+	      </category>
+       <command
+             categoryId="vtools.core.codetemplatecommands"
+             defaultHandler="com.vtools.core.commands.codetemplate.CreateHandler"
+             description="create"
+             id="vtools.core.codetemplatecommands.create"
+             name="vtools.core.codetemplatecommands.create">
+       </command>
+	      <command
+             categoryId="vtools.core.codetemplatecommands"
+             defaultHandler="com.vtools.core.commands.codetemplate.RefreshHandler"
+             description="refresh"
+             id="vtools.core.codetemplatecommands.refresh"
+             name="vtools.core.codetemplatecommands.refresh">
+	      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:com.vtools.core.views.CodeTemplateView?after=additions">
+         <command
+               commandId="vtools.core.codetemplatecommands.create"
+               label="%vtools.core.codetemplatecommands.create.menuname"
+               style="push">
+         </command>
+         <separator
+               name="vtools.core.codetemplate.menu.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="vtools.core.codetemplatecommands.refresh"
+               label="%vtools.core.codetemplatecommands.refresh.menuname"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>

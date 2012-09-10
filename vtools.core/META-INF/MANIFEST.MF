@@ -4,6 +4,7 @@ Bundle-Name: VTools-Core
 Bundle-SymbolicName: VTools-Core;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: vtools.core.Activator
+Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
