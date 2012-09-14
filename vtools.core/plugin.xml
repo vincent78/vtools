@@ -21,6 +21,7 @@
    </extension>
 -->   
    <extension
+         name="主菜单"
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
@@ -143,10 +144,10 @@
 	      </category>
        <command
              categoryId="vtools.core.codetemplatecommands"
-             defaultHandler="com.vtools.core.commands.codetemplate.CreateHandler"
-             description="create"
-             id="vtools.core.codetemplatecommands.create"
-             name="vtools.core.codetemplatecommands.create">
+             defaultHandler="com.vtools.core.commands.codetemplate.GenerateHandle"
+             description="generate code"
+             id="vtools.core.codetemplatecommands.generate"
+             name="vtools.core.codetemplatecommands.generate">
        </command>
 	      <command
              categoryId="vtools.core.codetemplatecommands"
@@ -155,6 +156,47 @@
              id="vtools.core.codetemplatecommands.refresh"
              name="vtools.core.codetemplatecommands.refresh">
 	      </command>
+       <command
+             categoryId="vtools.core.codetemplatecommands"
+             defaultHandler="com.vtools.core.commands.codetemplate.InsertHandler"
+             description="insert"
+             id="vtools.core.codetemplatecommands.insert"
+             name="vtools.core.codetemplatecommands.insert">
+       </command>
+       <command
+             categoryId="vtools.core.codetemplatecommands"
+             defaultHandler="com.vtools.core.commands.codetemplate.DeleteHandle"
+             description="delete"
+             id="vtools.core.codetemplatecommands.delete"
+             name="vtools.core.codetemplatecommands.delete">
+       </command>
+       <command
+             categoryId="vtools.core.codetemplatecommands"
+             defaultHandler="com.vtools.core.commands.codetemplate.InsertGroupHandle"
+             description="insertGroup"
+             id="vtools.core.codetemplatecommands.insertgroup"
+             name="vtools.core.codetemplatecommands.insertgroup">
+       </command>
+       <command
+             categoryId="vtools.core.codetemplatecommands"
+             defaultHandler="com.vtools.core.commands.codetemplate.CopyGroupHandle"
+             description="copyGroup"
+             id="vtools.core.codetemplatecommands.copygroup"
+             name="vtools.core.codetemplatecommands.copygroup">
+       </command>
+       <command
+             categoryId="vtools.core.codetemplatecommands"
+             defaultHandler="com.vtools.core.commands.codetemplate.DeleteGroupHandle"
+             description="deleteGroup"
+             id="vtools.core.codetemplatecommands.deletegroup"
+             name="vtools.core.codetemplatecommands.deletegroup">
+       </command>
+       <command
+             categoryId="vtools.core.codetemplatecommands"
+             description="parameter"
+             id="vtools.core.codetemplatecommands.paramters"
+             name="vtools.core.codetemplatecommands.paramters">
+       </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -162,8 +204,8 @@
             allPopups="false"
             locationURI="menu:com.vtools.core.views.CodeTemplateView?after=additions">
          <command
-               commandId="vtools.core.codetemplatecommands.create"
-               label="%vtools.core.codetemplatecommands.create.menuname"
+               commandId="vtools.core.codetemplatecommands.generate"
+               label="%vtools.core.codetemplatecommands.generate.menuname"
                style="push">
          </command>
          <separator
@@ -173,6 +215,48 @@
          <command
                commandId="vtools.core.codetemplatecommands.refresh"
                label="%vtools.core.codetemplatecommands.refresh.menuname"
+               style="push">
+         </command>
+         <separator
+               name="vtools.core.codetemplate.menu.separator2"
+               visible="true">
+         </separator>
+         <command
+               commandId="vtools.core.codetemplatecommands.insert"
+               label="%vtools.core.codetemplatecommands.insert.menuname"
+               style="push">
+         </command>
+         <command
+               commandId="vtools.core.codetemplatecommands.delete"
+               label="%vtools.core.codetemplatecommands.delete.menuname"
+               style="push">
+         </command>
+         <separator
+               name="vtools.core.codetemplate.menu.separator3"
+               visible="true">
+         </separator>
+         <command
+               commandId="vtools.core.codetemplatecommands.insertgroup"
+               label="%vtools.core.codetemplatecommands.insertgroup.menuname"
+               style="push">
+         </command>
+         <command
+               commandId="vtools.core.codetemplatecommands.copygroup"
+               label="%vtools.core.codetemplatecommands.copygroup.menuname"
+               style="push">
+         </command>
+         <command
+               commandId="vtools.core.codetemplatecommands.deletegroup"
+               label="%vtools.core.codetemplatecommands.deletegroup.menuname"
+               style="push">
+         </command>
+         <separator
+               name="vtools.core.codetemplate.menu.separator4"
+               visible="true">
+         </separator>
+         <command
+               commandId="vtools.core.codetemplatecommands.paramters"
+               label="%vtools.core.codetemplatecommands.paramters.menuname"
                style="push">
          </command>
       </menuContribution>
