@@ -260,6 +260,28 @@
                style="push">
          </command>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:com.vtools.core.views.CodeTemplateView?after=additions">
+         <command
+               commandId="vtools.core.codetemplatecommands.generate"
+               disabledIcon="icons/generated.ico"
+               icon="icons/generated.ico"
+               label="ddd"
+               style="push"
+               tooltip="%vtools.core.codetemplatecommands.generate.menuname">
+         </command>
+         <separator
+               name="vtools.core.codetemplate.toolbar.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="vtools.core.codetemplatecommands.refresh"
+               icon="icons/refresh.gif"
+               style="push"
+               tooltip="%vtools.core.codetemplatecommands.refresh.menuname">
+         </command>
+      </menuContribution>
    </extension>
 
 </plugin>
