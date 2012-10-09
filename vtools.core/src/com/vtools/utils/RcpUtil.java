@@ -10,6 +10,8 @@ import org.eclipse.osgi.service.datalocation.Location;
 import org.eclipse.swt.widgets.Display;
 import org.osgi.framework.Bundle;
 
+import com.vtools.core.Messages;
+
 public class RcpUtil
 {
 	/**
@@ -58,6 +60,22 @@ public class RcpUtil
 	{
 		MessageDialog.openInformation(Display.getCurrent().getActiveShell(), title, msg);
 	}
+	
+	public static void ShowWarnMsg(String msg)
+	{
+		MessageDialog.openInformation(Display.getCurrent().getActiveShell(), Messages.MessageDialog_Title_Warn, msg);
+	}
+	
+	public static void ShowErrorMsg(String msg)
+	{
+		MessageDialog.openInformation(Display.getCurrent().getActiveShell(), Messages.MessageDialog_Title_Error, msg);
+	}
+
+	public static void ShowPromptMsg(String msg)
+	{
+		MessageDialog.openInformation(Display.getCurrent().getActiveShell(), Messages.MessageDialog_Title_Error, msg);
+	}
+	
 
 	
 

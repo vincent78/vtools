@@ -39,6 +39,19 @@ public class BasicEditorPart extends EditorPart implements ISaveablePart2
 	private BasicEditorInput input;
 	private Text text;
 	private boolean dirty;
+	private boolean readonly;
+	
+	
+
+	public boolean isReadonly()
+	{
+		return readonly;
+	}
+
+	public void setReadonly(boolean readonly)
+	{
+		this.readonly = readonly;
+	}
 
 	public BasicEditorPart() {
 	}

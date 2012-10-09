@@ -9,6 +9,7 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.eclipse.ui.internal.util.PrefUtil;
 
+@SuppressWarnings("restriction")
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
     public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
@@ -28,8 +29,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         
         
         //定制应用程序的外观
-        @SuppressWarnings("restriction")
-		IPreferenceStore preferenceStore = PrefUtil.getAPIPreferenceStore();
+        IPreferenceStore preferenceStore = PrefUtil.getAPIPreferenceStore();
         //设置选项卡的样式，不是矩形的边框，而是弧形的
         preferenceStore.setValue(IWorkbenchPreferenceConstants.SHOW_TRADITIONAL_STYLE_TABS, false);
         //设置透视图按钮的位置，默认是左上角，改为放置在右上角

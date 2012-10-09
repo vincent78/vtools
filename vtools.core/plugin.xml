@@ -267,7 +267,7 @@
                commandId="vtools.core.codetemplatecommands.generate"
                disabledIcon="icons/generated.ico"
                icon="icons/generated.ico"
-               label="ddd"
+               label="%vtools.core.codetemplatecommands.generate.menuname"
                style="push"
                tooltip="%vtools.core.codetemplatecommands.generate.menuname">
          </command>
