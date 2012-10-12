@@ -110,23 +110,6 @@
       </perspectiveExtension>
    </extension>
    <extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            id="VTools.CodeTemplateView.ActionSet"
-            label="VTools.CodeTemplateView.ActionSet"
-            visible="true">
-         <action
-               class="com.vtools.core.actions.RefreshAction"
-               icon="src/com/vtools/core/views/refresh.gif"
-               id="VTools.CodeTemplateView.ActionSet.Refresh"
-               label="刷新"
-               style="push"
-               toolbarPath="additions"
-               tooltip="刷新">
-         </action>
-      </actionSet>
-   </extension>
-   <extension
          point="org.eclipse.ui.editors">
       <editor
             class="com.vtools.core.editors.BasicEditorPart"

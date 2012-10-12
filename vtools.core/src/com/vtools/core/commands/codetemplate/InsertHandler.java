@@ -34,6 +34,7 @@ public class InsertHandler implements IHandler
 	public Object execute(ExecutionEvent event) throws ExecutionException
 	{
 		// TODO Auto-generated method stub
+		System.out.println("TEST");
 		return null;
 	}
 
@@ -41,14 +42,14 @@ public class InsertHandler implements IHandler
 	public boolean isEnabled()
 	{
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isHandled()
 	{
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
